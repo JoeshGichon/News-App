@@ -1,4 +1,3 @@
-from app.news_source_test import News_Source
 from app import app
 import urllib.request,json
 from .models import news_source
@@ -19,7 +18,7 @@ def get_news_sources():
 
         if get_news_sources_response['sources']:
             news_source_results_list = get_news_sources_response['sources']
-            news_source_results = process_results(news_source_results)
+            news_source_results = process_results(news_source_results_list)
 
         return news_source_results
 
