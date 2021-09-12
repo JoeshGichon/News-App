@@ -10,5 +10,5 @@ class NewsSourceTest:
     def test_instance(self):
         self.assertTrue(isinstance(self.newsSource,News_Source))
 
-    if __name__ == '__main__':
+if __name__ == '__main__':
         unittest.main()

@@ -8,3 +8,4 @@ def index():
     title="Home"
     news_sources = get_news_sources()
     return render_template("index.html", title=title,news_sources=news_sources)
+
