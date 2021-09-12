@@ -7,5 +7,4 @@ from .request import get_news_sources
 def index():
     title="Home"
     news_sources = get_news_sources()
-    print(news_sources)
     return render_template("index.html", title=title,news_sources=news_sources)

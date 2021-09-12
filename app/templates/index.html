@@ -1,13 +1,27 @@
 {% extends "base.html" %}
 
+{% import 'macros.html' as macro%}
 
+{% block styles%}
+    {{ super() }}
+    <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
+{% endblock %}
 
 {% block body %}
 
 {% block navbar %}
-            {% include 'navbar.html' %}
-        {% endblock %}
+    {% include 'navbar.html' %}
+{% endblock %}
 <div>
-    <h1>Hello world</h1>
+    <ul>
+        {% for sources in news_sources %}
+        <li>
+            <h1>{{sources.name}}</h1>
+            <p>{{sources.description}}</p>
+            <a href="{{sources.url}}">{{sources.name}} Website</a>
+        </li>
+        
+        {% endfor %}
+    </ul>
 </div>
 {% endblock %}
