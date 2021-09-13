@@ -1,17 +1,21 @@
-{% macro displayArticles(articles_list) %}
+<div class="container">
+    <div class="row">
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            {% macro displayArticles(articles_list) %}
+                {% for articles in articles_list %}
+                    <li>
+                        <p>{{ articles.description }}</p>
+                        <img src="{{articles.urlToImage}}" alt="article image">
+                        <p>{{ articles.content }}
+                            <br>
+                            <a href="{{ articles.url }}" target="_blank">read More: </a> 
+                        </p>
+                        <h4>published on:{{ articles.publishedAt}}</h4>
+                    </li>
+                {% endfor %}
+            {% endmacro %}
+        </div>
+    </div>
+</div>
 
-    {% for articles in articles_list %}
-        <li>
-            <p>{{ articles.description }}</p>
-            <img src="{{articles.urlToImage}}" alt="article image">
-            <p>{{ articles.content }}
-                <br>
-                <a href="{{ articles.url }}" target="_blank">read More: </a> 
-            </p>
-
-            <h4>published on:{{ articles.publishedAt}}</h4>
-        </li>
-    {% endfor %}
-
-{% endmacro %}
 
