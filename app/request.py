@@ -2,12 +2,23 @@ from app import app
 import urllib.request,json
 from .models import news_source,news_articles
 
-api_key = app.config['NEWS_API_KEY']
-base_url = app.config["NEWS_API_BASE_URL"]
-base_url2 = app.config["ARTICLE_API_BASE_URL"]
+# Getting api key
+api_key = None
 
-News_Source=news_source.News_Source
-News_Articles=news_articles.News_Articles
+api_key = app.config['NEWS_API_KEY']
+
+# Getting NEWS_API_BASE_URL
+base_url = None
+
+# Getting ARTICLE_API_BASE_URL
+base_url2 = None
+
+def configure_request(app):
+    global api_key,base_url,base_url2
+
+    api_key = app.config['NEWS_API_KEY']
+    base_url = app.config['NEWS_API_BASE_URL']
+    base_url2 = app.config['ARTICLE_API_BASE_URL']
 
 def get_news_sources():
     get_news_sources_url = base_url.format(api_key)
@@ -36,7 +47,7 @@ def process_results(news_sources_list):
         country=news_source_item.get("country")
 
         if category:
-            news_source_object=News_Source(id,name,description,url,category,language,country)
+            news_source_object=news_source(id,name,description,url,category,language,country)
             news_sources_results.append(news_source_object)
 
     return news_sources_results
@@ -71,7 +82,7 @@ def process_results2(news_articles_list):
             id = news_article_item.get('id')
             name = news_article_item.get('name')
 
-            news_articles_object=News_Articles(name,id,author,title,url,urlToImage,publishedAt,content)
+            news_articles_object=news_articles(name,id,author,title,url,urlToImage,publishedAt,content)
             news_articles_results.append(news_articles_object)
 
     return news_articles_results
