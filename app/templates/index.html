@@ -16,6 +16,7 @@
     <ul>
         {% for sources in news_sources %}
         <li>
+            {{sources.id}}
             <h1>{{sources.name}}</h1>
             <p>{{sources.description}}</p>
             <a href="{{sources.url}}">{{sources.name}} Website</a>
