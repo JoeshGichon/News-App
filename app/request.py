@@ -41,8 +41,8 @@ def process_results(news_sources_list):
 
     return news_sources_results
 
-def get_news_articles():
-    get_news_articles_url = base_url2.format(api_key)
+def get_news_articles(sources):
+    get_news_articles_url = base_url2.format(sources,api_key)
 
     with urllib.request.urlopen(get_news_articles_url) as url:
         get_news_articles_data = url.read()
@@ -71,7 +71,7 @@ def process_results2(news_articles_list):
             id = news_article_item.get('id')
             name = news_article_item.get('name')
 
-            news_articles_object=News_Articles(id,name,author,title,url,urlToImage,publishedAt,content)
+            news_articles_object=News_Articles(name,id,author,title,url,urlToImage,publishedAt,content)
             news_articles_results.append(news_articles_object)
 
     return news_articles_results

@@ -12,6 +12,14 @@ def index():
 @app.route("/articles")
 def article():
     title="articles"
-    news_articles = get_news_articles()
-    print(news_articles)
-    return render_template("articles.html",title=title,news_articles=news_articles)
+    bbc_news_articles = get_news_articles("bbc-news")
+    a=get_news_articles("abc-news-au")
+    b = get_news_articles("aftenposten")
+    c=get_news_articles("al-jazeera-english")
+    d=get_news_articles("associated-press")
+    e=get_news_articles("bloomberg")
+    f=get_news_articles("cbs-news")
+    g=get_news_articles("cnn-es")
+    h=get_news_articles("crypto-coins-news")
+    i=get_news_articles("financial-post")
+    return render_template("articles.html",title=title,bbc_news_articles=bbc_news_articles,a=a,b=b,c=c,d=d,e=e,f=f,g=g,h=h,i=i)

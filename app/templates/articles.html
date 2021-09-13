@@ -16,11 +16,34 @@
 <div>
     <h1>Headlines articles</h1>
     <ul>
-        {% for articles in news_articles %}
-        <img src="{{articles.urlToImage}}" alt="">
-        <p>{{ articles.description }}</p>
-
-        {% endfor %}
+        {{ macro.displayArticles(bbc_news_articles) }}
+    </ul>
+    <ul>
+        {{ macro.displayArticles(a) }}
+    </ul>
+    <ul>
+        {{ macro.displayArticles(b) }}
+    </ul>
+    <ul>
+        {{ macro.displayArticles(c) }}
+    </ul>
+    <ul>
+        {{ macro.displayArticles(d) }}
+    </ul>
+    <ul>
+        {{ macro.displayArticles(e) }}
+    </ul>
+    <ul>
+        {{ macro.displayArticles(f) }}
+    </ul>
+    <ul>
+        {{ macro.displayArticles(g) }}
+    </ul>
+    <ul>
+        {{ macro.displayArticles(h) }}
+    </ul>
+    <ul>
+        {{ macro.displayArticles(i) }}
     </ul>
 </div>
 {% endblock %}
