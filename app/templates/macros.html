@@ -5,7 +5,7 @@
                 {% for articles in articles_list %}
                     <li>
                         <p>{{ articles.description }}</p>
-                        <img src="{{articles.urlToImage}}" alt="article image">
+                        <img height="360px" width="280px" src="{{articles.urlToImage}}" alt="article image">
                         <p>{{ articles.content }}
                             <br>
                             <a href="{{ articles.url }}" target="_blank">read More: </a> 
